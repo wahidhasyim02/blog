@@ -1,0 +1,29 @@
+{{- $page := .page }}
+{{- range .menuEntries }}
+{{- $attrs := dict "href" .URL }}
+{{- if $page.IsMenuCurrent .Menu . }}
+{{- $attrs = merge $attrs (dict "class" "active" "aria-current" "page") }}
+{{- else if $page.HasMenuCurrent .Menu . }}
+{{- $attrs = merge $attrs (dict "class" "ancestor" "aria-current" "true") }}
+{{- end }}
+{{- $name := .Name }}
+{{- with .Identifier }}
+{{- with T . }}
+{{- $name = . }}
+{{- end }}
+{{- end }}
+<li class="w-full flex flex-col h-full  items-start justify-center  group text-center ">
+    <a class="group-hover:text-lightblue-300 h-[60px] pr-2 flex flex-col items-start justify-center pt-1 " {{- range $k,
+        $v :=$attrs }} {{- with $v }} {{- printf " %s=%q" $k $v | safeHTMLAttr }} {{- end }} {{- end }}>
+
+        {{- $name }}
+    </a>
+    <div class="w-[0%] group-hover:w-[100%]  h-[10%] items-start content-start relative  bg-lightblue-300 duration-500">
+    </div>
+    {{- with .Children }}
+    <ul>
+        {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+    </ul>
+    {{- end }}
+</li>
+{{- end }}

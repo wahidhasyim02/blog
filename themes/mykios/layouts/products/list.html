@@ -1,0 +1,67 @@
+{{ define "main" }}
+<div class="flex w-full flex-col space-y-4  mb-4">
+
+
+
+    <!--<h3 class="font-medium text-xl text-xai-400">{{ .Title }}</h3>
+     <div class="bg-red-600"> {{ .Content }}</div>-->
+    <div class="flex-row w-full items-center justify-center text-center space-y-2 ">
+        {{ if eq .Section "products" }}
+        <!-- Bagian ini hanya akan muncul di halaman /posts/ -->
+        <h1 class="text-4xl font-black">Our {{ .Section | title }}</h1>
+        <div class=""> {{ .Content }}</div>
+        {{ end }}
+
+        <div class="w-full h-[300px] overflow-hidden rounded-lg relative">
+            {{ with .Params.images }}
+            <img src="{{ index . 0 }}" alt="First image" class="w-full h-full object-cover">
+            {{ else }}
+            <img src="/images/banner.png" alt="Banner" class="w-full h-full object-cover">
+            {{ end }}
+        </div>
+
+        <div class="text-left">
+            <a href="{{ .RelPermalink }}">
+                <h3 class="font-medium text-xl ">{{ .Title }}</h3>
+            </a>
+
+            {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }} {{
+            $dateHuman := .Date | time.Format ":date_long" }}
+            <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+            <!-- <div class=""> {{ .Content }}</div>-->
+        </div>
+    </div>
+</div>
+{{ range .Pages }}
+<div
+    class="flex flex-row w-full  rounded-xl   odd:bg-white/10 even:bg-white/20  dark:odd:bg-xai-700/10 dark:even:bg-xai-700/5 backdrop-blur-md">
+    <div class="p-4 mb-4 flex-1">
+        <div class="w-40 h-28 overflow-hidden relative float-start mr-4 ">
+            {{ with .Params.images }}
+            <img src="{{ index . 0 }}" alt="First image" class="w-full h-full rounded-md object-cover ">
+            {{ end }}
+        </div>
+        <h2 class="text-lg text-xai-500 hover:text-lightblue-300 ">
+            <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+        </h2>
+        <p class=" overflow-ellipsis text-xai-800 dark:text-xai-400">
+            {{ with .Params.description }}
+            {{ . }}
+
+            {{ else }}
+            {{ .Summary }}
+            {{ end }}</p>
+        {{ .Content }}
+
+
+        {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }} {{
+        $dateHuman := .Date | time.Format ":date_long" }}
+        <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+        <!-- <div class=""> {{ .Content }}</div>-->
+
+    </div>
+</div>
+
+
+{{ end }}
+{{ end }}

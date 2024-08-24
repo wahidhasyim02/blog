@@ -1,0 +1,12 @@
+{{- /* Ini Komen Renders a menu for the given menu ID. @context {page} page The
+current page. @context {string} menuID The menu ID. @example: {{ partial
+"menu.html" (dict "menuID" "main" "page" .) }} */}} {{- $page := .page }} {{-
+$menuID := .menuID }} {{- with index site.Menus $menuID }}
+<nav class="w-auto grow flex justify-end">
+  <ul class="flex space-x-16 justify-center items-center">
+    {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}<span id="toggle-mode"
+      class="material-symbols-rounded cursor-pointer text-lightblue-300">dark_mode</span>
+
+  </ul>
+</nav>
+{{- end }}

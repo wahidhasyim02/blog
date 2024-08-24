@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!-- prettier-ignore -->
+<html class="" lang="{{ or site.Language.LanguageCode " en-us" }}" dir="{{ or site.Language.LanguageDirection " ltr"
+  }}">
+
+<head>
+  <title>
+    {{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}
+  </title>
+  {{ partial "head.html" . }}
+</head>
+
+<body
+  class="bg-white dark:bg-xai-900 font-sans  bg-cover bg-no-repeat text-xai-600 dark:text-xai-400  transition-colors duration-600  min-h-screen  ">
+  <header>
+    {{ partial "header.html" . }}
+  </header>
+  <main
+    class="h-full w-full bg-gradient-to-br from-[#C3E3FA] to-[#ec90bb] dark:bg-gradient-to-br dark:from-xai-800 dark:to-xai-900  rounded-t-3xl px-12 pb-24 pt-12 overflow-y-auto scroll-smooth fixed ">
+    {{ block "main" . }}
+
+    {{ end }}
+
+  </main>
+  <footer>
+    {{ partial "footer.html" . }}
+
+
+  </footer>
+  {{- with resources.Get "/js/script.js" }}
+  {{- if eq hugo.Environment "development" }}
+  <!-- Pada mode pengembangan, Anda mungkin ingin menyertakan file asli tanpa minify atau fingerprint -->
+  <script src="{{ .RelPermalink }}" defer></script>
+  {{- else }}
+  {{- $script := . | minify | fingerprint }}
+  <script src="{{ $script.RelPermalink }}" defer></script>
+  {{- end }}
+  {{- end }}
+</body>
+
+</html>

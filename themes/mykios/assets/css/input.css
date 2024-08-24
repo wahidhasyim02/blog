@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  button {
+    @apply transition-colors duration-300;
+  }
+
+  .overflow-style::-webkit-scrollbar {
+    @apply w-[6px] bg-xai-50;
+  }
+  .overflow-style::-webkit-scrollbar-thumb {
+    @apply bg-bluev3-500 py-4;
+  }
+  .overflow-style::-webkit-scrollbar-track {
+    @apply my-4 bg-xai-50;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+
+  input[type="checkbox"] {
+    @apply mx-auto flex h-4 w-4 cursor-pointer appearance-none items-center justify-center rounded border-2 border-white bg-xai-300 outline-none ring-2 ring-xai-300;
+    -webkit-appearance: none;
+  }
+
+  input[type="checkbox"]:after {
+    @apply hidden text-[0.8rem] font-black text-white;
+    font-family: "Material Symbols Rounded";
+    content: "\e5ca";
+  }
+  input[type="checkbox"]:hover {
+    @apply bg-xai-400;
+  }
+  input[type="checkbox"]:checked {
+    @apply bg-bluev3-500 ring-bluev3-500;
+  }
+
+  input[type="checkbox"]:indeterminate {
+    @apply bg-bluev3-500 ring-bluev3-500;
+  }
+  input[type="checkbox"]:checked:after {
+    @apply block;
+  }
+  input[type="checkbox"]:active {
+    @apply bg-bluev3-500 ring-bluev3-500;
+  }
+
+  input[type="checkbox"]:focus {
+    @apply bg-bluev3-600 ring-bluev3-800;
+  }
+  input[type="checkbox"]:checked:focus {
+    @apply bg-bluev3-600 ring-bluev3-800;
+  }
+
+  .bar-of-progress {
+    @apply fixed left-0 top-0 z-1200 m-0 h-[3px] w-0 rounded-none bg-current p-0 text-bluev3-500 opacity-0;
+    border: medium;
+    /* Start with width 0 */
+    transition:
+      width 2s ease-out,
+      opacity 0.5s 0.2s; /* Change width transition duration to 2s */
+  }
+
+  .glow {
+    @apply h-full opacity-[0.4];
+    box-shadow: 3px 0px 8px;
+  }
+
+  .finished {
+    @apply w-full opacity-100; /* When finished, width is 100% */
+    /* When finished, opacity is 1 */
+  }
+}
+
+@layer utilities {
+  ul {
+    @apply !list-none;
+  }
+  li {
+    @apply !list-none;
+  }
+  .content-auto {
+    content-visibility: auto;
+  }
+
+  .jumbo {
+    width: cal(100% - 102px);
+  }
+
+  .border-gradient {
+    /* Gradien dari kiri atas ke kanan bawah */
+    background-image: linear-gradient(
+      115deg,
+      rgba(56, 189, 248, 0) 0%,
+      rgba(56, 189, 248, 0) 20%,
+
+      rgba(56, 189, 248, 0.8) 55%,
+
+      rgba(56, 189, 248, 0.8) 55%,
+      rgba(56, 189, 248, 0) 70%,
+
+      rgba(56, 189, 248, 0) 100%
+    );
+  }
+  .border-gradient-dark {
+    /* Gradien dari kiri atas ke kanan bawah */
+    background-image: linear-gradient(
+      115deg,
+      rgba(61, 78, 90, 0) 0%,
+      rgba(61, 78, 90, 0) 10%,
+
+      rgba(61, 78, 90, 0.9) 55%,
+
+      rgba(61, 78, 90, 0.8) 55%,
+      rgba(61, 78, 90, 0) 90%,
+
+      rgba(61, 78, 90, 0) 100%
+    );
+  }
+
+  option {
+    @apply mx-2 cursor-pointer appearance-none items-center justify-center rounded-md px-2 py-1 text-center hover:bg-red-500 hover:text-white;
+  }
+}
