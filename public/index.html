@@ -91,24 +91,24 @@
   <main
     class="h-full w-full bg-xai-100 dark:bg-xai-900  rounded-t-3xl px-12 pb-24 pt-12 overflow-y-auto scroll-smooth fixed ">
     <div
-      class="absolute mix-blend-multiply border-0 filter blur-2xl opacity-60 bottom-30 -left-10  bg-lightblue-300 rounded-full w-96 h-96 animate-blob ">
+      class="-z-10 p-40 absolute mix-blend-multiply border-0 filter blur-2xl opacity-60 bottom-30 -left-10  bg-lightblue-300 rounded-full w-96 h-96 animate-blob ">
     </div>
     <div
-      class="absolute mix-blend-multiply border-0 filter blur-2xl opacity-60 bottom-20 left-50  bg-pink-300 rounded-full w-96 h-96 animate-blob animation-delay-2000">
+      class="-z-10 p-40 absolute mix-blend-multiply border-0 filter blur-2xl opacity-60 bottom-20 left-50   bg-pink-300 rounded-full w-96 h-96 animate-blob animation-delay-2000">
     </div>
     <div
-      class="absolute mix-blend-multiply border-0 filter blur-2xl opacity-40 bottom-45 left-20  bg-yellow-300 rounded-full w-96 h-96 animate-blob animation-delay-4000">
+      class="-z-10 p-40 absolute mix-blend-multiply border-0 filter blur-2xl opacity-40 bottom-45 left-20  bg-yellow-300 rounded-full w-96 h-96 animate-blob animation-delay-4000">
     </div>
 
 
     <div
-      class="absolute mix-blend-multiply border-0 filter blur-2xl  opacity-40 bottom-60 right-56  bg-violet-300 rounded-full w-96 h-96 animate-blob animation-delay-4000 ">
+      class="-z-10 p-40 absolute mix-blend-multiply border-0 filter blur-2xl  opacity-40 bottom-60 right-56  bg-violet-300 rounded-full w-96 h-96 animate-blob animation-delay-4000 ">
     </div>
     <div
-      class="absolute mix-blend-multiply border-0 filter blur-2xl  opacity-40 bottom-52 right-52 bg-pink-300 rounded-full w-96 h-96 animate-blob ">
+      class="-z-10 p-40 absolute mix-blend-multiply border-0 filter blur-2xl  opacity-60 bottom-52 right-52 bg-pink-300 rounded-full w-96 h-96 animate-blob ">
     </div>
     <div
-      class="absolute mix-blend-multiply border-0 filter blur-2xl  opacity-40 bottom-64 right-60  bg-yellow-300 rounded-full w-96 h-96 animate-blob animation-delay-2000">
+      class="-z-10 p-40 absolute mix-blend-multiply border-0 filter blur-2xl  opacity-40 bottom-64 right-60  bg-yellow-300 rounded-full w-96 h-96 animate-blob animation-delay-2000">
     </div>
 
 
@@ -132,34 +132,34 @@
             </span>
         </button>
     </div>
-    <div class="w-full flex flex-col items-center h-full justify-center">
+    <div class="w-full flex flex-col z-1000 items-center h-full justify-center">
         <div class="image-display">
             <img id="product-image" src="/images/sepatu1.png" class="w-[500px]" alt="sepatu" />
         </div>
-        <div id="color-picker" class="w-full h-[60px] flex justify-center space-x-3">
-            <div id="red" class="color-btn flex justify-center items-center h-12 w-12">
-                <button
-                    class="h-8 w-8 hover:h-12 hover:w-12 active:h-12 active:w-12 visited:h-12 visited:w-12 hover:shadow-lg visited:shadow-lg duration-500 transition-transform rounded-full bg-[#930605] border-4 border-white dark:border-xai-700">
+        <div id="color-picker" class="w-full z-50 h-[60px] flex justify-center space-x-3">
+            <div class="flex justify-center items-center h-12 w-12">
+                <button id="red"
+                    class="color-btn  h-8 w-8 hover:h-12 hover:w-12 active:h-12 active:w-12 visited:h-12 visited:w-12 hover:shadow-lg visited:shadow-lg duration-500 transition-transform rounded-full bg-[#930605] border-4 border-white dark:border-xai-700">
                 </button>
             </div>
-            <div id="yellow" class="color-btn flex justify-center items-center h-12 w-12">
-                <button active:true
-                    class="h-8 w-8 active hover:h-12 hover:w-12 active:h-12 active:w-12 visited:h-12 visited:w-12 hover:shadow-lg visited:shadow-lg duration-500 transition-transform rounded-full bg-[#C7890B] border-4 border-white dark:border-xai-700">
+            <div class="flex justify-center items-center h-12 w-12">
+                <button id="yellow" active:true
+                    class="color-btn  h-8 w-8 active hover:h-12 hover:w-12 active:h-12 active:w-12 visited:h-12 visited:w-12 hover:shadow-lg visited:shadow-lg duration-500 transition-transform rounded-full bg-[#C7890B] border-4 border-white dark:border-xai-700">
                 </button>
             </div>
-            <div id="green" class="color-btn flex justify-center items-center h-12 w-12">
-                <button
-                    class="h-8 w-8 hover:h-12 hover:w-12 active:h-12 active:w-12 visited:h-12 visited:w-12 hover:shadow-lg visited:shadow-lg duration-500 transition-transform rounded-full bg-[#429D04] border-4 border-white dark:border-xai-700">
+            <div class="flex justify-center items-center h-12 w-12">
+                <button id="green"
+                    class="color-btn h-8 w-8 hover:h-12 hover:w-12 active:h-12 active:w-12 visited:h-12 visited:w-12 hover:shadow-lg visited:shadow-lg duration-500 transition-transform rounded-full bg-[#429D04] border-4 border-white dark:border-xai-700">
                 </button>
             </div>
-            <div id="tosca" class="color-btn flex justify-center items-center h-12 w-12">
-                <button
-                    class="h-8 w-8 hover:h-12 hover:w-12 active:h-12 active:w-12 visited:h-12 visited:w-12 hover:shadow-lg visited:shadow-lg duration-500 transition-transform rounded-full bg-[#018585] border-4 border-white dark:border-xai-700">
+            <div class="flex justify-center items-center h-12 w-12">
+                <button id="tosca"
+                    class="color-btn h-8 w-8 hover:h-12 hover:w-12 active:h-12 active:w-12 visited:h-12 visited:w-12 hover:shadow-lg visited:shadow-lg duration-500 transition-transform rounded-full bg-[#018585] border-4 border-white dark:border-xai-700">
                 </button>
             </div>
-            <div id="blue" class="color-btn flex justify-center items-center h-12 w-12">
-                <button
-                    class="h-8 w-8 hover:h-12 hover:w-12 active:h-12 active:w-12 visited:h-12 visited:w-12 hover:shadow-lg visited:shadow-lg duration-500 transition-transform rounded-full bg-[#0753AC] border-4 border-white dark:border-xai-700">
+            <div class="flex justify-center items-center h-12 w-12">
+                <button id="blue"
+                    class="color-btn h-8 w-8 hover:h-12 hover:w-12 active:h-12 active:w-12 visited:h-12 visited:w-12 hover:shadow-lg visited:shadow-lg duration-500 transition-transform rounded-full bg-[#0753AC] border-4 border-white dark:border-xai-700">
                 </button>
             </div>
         </div>
