@@ -10,9 +10,9 @@
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Sepatu 4</title>
-      <link>http://localhost:1313/products/sepatu4/</link>
+      <link>http://localhost:1313/products/item-4/</link>
       <pubDate>Sat, 24 Aug 2024 11:03:34 +0700</pubDate>
-      <guid>http://localhost:1313/products/sepatu4/</guid>
+      <guid>http://localhost:1313/products/item-4/</guid>
       <description></description>
     </item>
     <item>
