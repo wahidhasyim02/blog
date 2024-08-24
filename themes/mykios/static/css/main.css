@@ -701,16 +701,16 @@ input[type="checkbox"]:checked:focus {
   right: 15rem !important;
 }
 
+.-z-10 {
+  z-index: -10 !important;
+}
+
 .z-1000 {
   z-index: 1000 !important;
 }
 
 .z-50 {
   z-index: 50 !important;
-}
-
-.-z-10 {
-  z-index: -10 !important;
 }
 
 .float-start {
@@ -779,10 +779,6 @@ input[type="checkbox"]:checked:focus {
 
 .inline-flex {
   display: inline-flex !important;
-}
-
-.hidden {
-  display: none !important;
 }
 
 .h-12 {
@@ -1161,16 +1157,12 @@ input[type="checkbox"]:checked:focus {
   padding: 1rem !important;
 }
 
-.p-8 {
-  padding: 2rem !important;
-}
-
-.p-10 {
-  padding: 2.5rem !important;
-}
-
 .p-40 {
   padding: 10rem !important;
+}
+
+.p-8 {
+  padding: 2rem !important;
 }
 
 .px-12 {
@@ -1576,10 +1568,6 @@ option:hover {
 
 .group:hover .group-hover\:w-\[100\%\] {
   width: 100% !important;
-}
-
-.group:hover .group-hover\:w-12 {
-  width: 3rem !important;
 }
 
 .group:hover .group-hover\:translate-x-1 {

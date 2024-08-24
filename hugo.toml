@@ -1,4 +1,4 @@
-baseURL = 'https://ourshoes.org/'
+baseURL = 'https://ourshoes.github.io.git/'
 languageCode = 'en-us'
 title = 'OurShoes'
 theme = 'mykios'
