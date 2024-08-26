@@ -8,10 +8,9 @@ $taxonomy }} {{- $label := (index . 0).Parent.LinkTitle }}
   <ul class="p-1">
     {{- range . }}
     <li
-      class="py-[2px] mx-1 px-3 rounded-full border border-xai-700  hover:bg-lightblue-400  hover:border-lightblue-400 hover:text-white inline ">
-      <a href="{{ .RelPermalink }}">{{
-        .LinkTitle
-        }}</a>
+      class="py-[2px] mx-1 px-3 rounded-full border border-xai-700 hover:bg-lightblue-400 hover:border-lightblue-400 hover:text-white inline"
+    >
+      <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
     </li>
     {{- end }}
   </ul>

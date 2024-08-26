@@ -13,6 +13,12 @@ module.exports = {
       animation: {
         blob: "blob 7s infinite",
       },
+      animationDelay: {
+        1: "1s", // ini menambahkan delay 1 detik
+        2: "2s",
+        3: "3s",
+        4: "4s",
+      },
       keyframes: {
         blob: {
           "0%": {
@@ -164,6 +170,19 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities, theme, e }) {
+      const delays = theme("animationDelay", {});
+      const utilities = Object.entries(delays).map(([key, value]) => {
+        return {
+          [`.${e(`delay-${key}`)}`]: {
+            "animation-delay": value,
+          },
+        };
+      });
+
+      addUtilities(utilities, ["responsive"]);
+    },
+  ],
   darkMode: "class",
 };

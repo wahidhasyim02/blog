@@ -1,23 +1,26 @@
 {{ define "main" }}
 
-<div class="w-[300px] h-auto overflow-hidden  relative my-2">
-    {{ with .Params.images }}
-    <img src="{{ index . 0 }}" alt="First image" class="w-full h-full object-cover ">
-    {{ end }}
+<div class="w-[300px] h-auto overflow-hidden relative my-2">
+  {{ with .Params.images }}
+  <img src="{{ index . 0 }}" alt="First image" class="w-full h-full object-cover" />
+  {{ end }}
+  <div
+    class="absolute top-0 right-4 rounded-full bg-yellow-400 w-36 h-36 p-2 flex items-center justify-center text-[55px] -rotate-12 font-bold text-white">
+    {{
+    .Params.discount }}
+  </div>
 </div>
 <div
-    class="p-4   odd:bg-white/10 even:bg-white/20  dark:odd:bg-xai-700/10 dark:even:bg-xai-700/5  backdrop-blur-md text-xai-700 dark:text-xai-400">
-
-    <h3 class="font-medium text-2xl text-xai-400 dark:text-xai-500">{{ .Title }}</h3>
-    <p>{{ .Params.description }}</p>
-    <p>Price: {{ .Params.price }}</p>
-    {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }} {{
-    $dateHuman := .Date | time.Format ":date_long" }}
-    <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
-    <p class="mt-2">{{ .Content }}</p> {{
-    partial
-    "terms.html"
-    (dict "taxonomy" "tags" "page" .)
-    }}
-</div> {{
-end }}
+  class="p-4 odd:bg-white/10 even:bg-white/20 dark:odd:bg-xai-700/10 dark:even:bg-xai-700/5 backdrop-blur-md text-xai-700 dark:text-xai-400">
+  <h3 class="font-medium text-2xl text-xai-400 dark:text-xai-500">
+    {{ .Title }}
+  </h3>
+  <p>{{ .Params.description }}</p>
+  <p>Price: {{ .Params.price }}</p>
+  {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }} {{
+  $dateHuman := .Date | time.Format ":date_long" }}
+  <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+  <p class="mt-2">{{ .Content }}</p>
+  {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+</div>
+{{ end }}

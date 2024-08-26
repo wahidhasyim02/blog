@@ -1,35 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const toggle = document.getElementById("toggle-mode");
-  const htmlElement = document.documentElement;
-
-  // Cek status dark mode dari localStorage
-  if (localStorage.getItem("theme") === "dark") {
-    htmlElement.classList.add("dark");
-
-    toggle.innerText = "light_mode";
-  } else {
-    htmlElement.classList.remove("dark");
-
-    toggle.innerText = "dark_mode";
-  }
-
-  // Tambahkan event listener pada tombol toggle
-  toggle.addEventListener("click", function () {
-    if (htmlElement.classList.contains("dark")) {
-      // Jika class dark ada, hapus dan ubah innerText
-      htmlElement.classList.remove("dark");
-      toggle.innerText = "dark_mode";
-      localStorage.setItem("theme", "light");
-    } else {
-      // Jika class dark tidak ada, tambahkan dan ubah innerText
-      htmlElement.classList.add("dark");
-      toggle.innerText = "light_mode";
-      localStorage.setItem("theme", "dark");
-    }
-  });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
   const colorButtons = document.querySelectorAll(".color-btn");
   const productImage = document.getElementById("product-image");
 
@@ -54,4 +23,42 @@ document.addEventListener("DOMContentLoaded", function () {
       productImage.src = imageMap[colorId];
     });
   });
+});
+
+// Script Darkmode
+document.addEventListener("DOMContentLoaded", function () {
+  var toggle = document.getElementById("toggle-mode");
+  var toggleSpan = toggle.querySelector("a span");
+  var toggleDiv = toggle.querySelector("div");
+  var htmlElement = document.documentElement;
+
+  // Fungsi untuk mengatur tema dan teks ikon
+  function setTheme(isDarkMode) {
+    if (isDarkMode) {
+      htmlElement.classList.add("dark");
+      toggleSpan.innerText = "light_mode";
+    } else {
+      htmlElement.classList.remove("dark");
+      toggleSpan.innerText = "dark_mode";
+    }
+  }
+
+  // Periksa tema awal dari localStorage
+  var isDark = localStorage.getItem("darkMode") === "true";
+  setTheme(isDark);
+
+  // Sembunyikan div di dalam li
+  if (toggleDiv) {
+    toggleDiv.classList.remove("bg-lightblue-300");
+    toggleDiv.classList.add("bg-lightblue-300/0");
+  }
+
+  if (toggle) {
+    // Tambahkan event listener untuk tombol toggle
+    toggle.addEventListener("click", function () {
+      var isDark = htmlElement.classList.toggle("dark"); // Toggle class
+      setTheme(isDark); // Perbarui teks ikon
+      localStorage.setItem("darkMode", isDark ? "true" : "false"); // Simpan mode ke localStorage
+    });
+  }
 });

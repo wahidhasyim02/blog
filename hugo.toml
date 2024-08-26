@@ -14,18 +14,52 @@ summaryLength = "5"
     name = "Home"
     url = "/"
     weight = 1
+    identifier = "home"
 
   [[menu.main]]
     name = "Products"
     url = "/products/"
     weight = 2
+    identifier = "products"
 
   [[menu.main]]
     name = "Blog"
     url = "/posts/"
     weight = 3
+    identifier = "blog"
 
   [[menu.main]]
     name = "Contact"
     url = "/contact/"
     weight = 4
+    identifier = "contact"
+
+      [[menu.main]]
+    name = "Toggle"
+    weight = 5
+    identifier = "toggle-mode"
+
+   [[menu.main]]
+    name = "Login"
+    url = "/login/"
+    weight = 6
+    identifier = "login"
+
+    [[menu.main]]
+    name = "Signup"
+    url = "/signup/"
+    weight = 7
+    identifier = "signup"
+
+  [[menu.main]]
+    name = "Logout"
+       weight = 8
+    identifier = "logout"
+   
+  [[menu.main]]
+    name = "Account"
+       weight = 9
+    identifier = "account"
+   
+  
+  

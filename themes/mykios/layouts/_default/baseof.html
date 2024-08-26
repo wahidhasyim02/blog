@@ -4,48 +4,63 @@
   }}">
 
 <head>
+  <script>
+    // Terapkan mode dark secepat mungkin sebelum konten halaman dimuat
+    if (localStorage.getItem("darkMode") === "true") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+    if (localStorage.getItem("darkMode") === "true") {
+      toggle.querySelector("a span").innerText = "light_mode";
+    } else {
+      toggle.querySelector("a span").innerText = "dark_mode";
+    }
+  </script>
+
   <title>
     {{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}
   </title>
+
   {{ partial "head.html" . }}
 </head>
 
 <body
-  class="bg-white dark:bg-xai-950 font-sans  bg-cover bg-no-repeat text-xai-600 dark:text-xai-400  transition-colors duration-600  min-h-screen  ">
-  <header>
+  class="bg-white dark:bg-xai-950 font-sans  bg-cover bg-no-repeat text-xai-600 dark:text-xai-400  transition-colors duration-500  max-h-screen max-w-full ">
+  <header class="z-1000">
     {{ partial "header.html" . }}
   </header>
   <!--<main
     class="h-full w-full bg-gradient-to-br from-[#C3E3FA] to-[#ec90bb] dark:bg-gradient-to-br dark:from-xai-800 dark:to-xai-900  rounded-t-3xl px-12 pb-24 pt-12 overflow-y-auto scroll-smooth fixed ">
 -->
-  <main
-    class="h-full w-full bg-xai-100 dark:bg-xai-900  rounded-t-3xl px-12 pb-24 pt-12 overflow-y-auto scroll-smooth fixed ">
-    <div
-      class="-z-10 p-40 absolute mix-blend-multiply border-0 filter blur-2xl opacity-60 bottom-30 -left-10  bg-lightblue-300 rounded-full w-96 h-96 animate-blob ">
-    </div>
-    <div
-      class="-z-10 p-40 absolute mix-blend-multiply border-0 filter blur-2xl opacity-60 bottom-20 left-50   bg-pink-300 rounded-full w-96 h-96 animate-blob animation-delay-2000">
-    </div>
-    <div
-      class="-z-10 p-40 absolute mix-blend-multiply border-0 filter blur-2xl opacity-40 bottom-45 left-20  bg-yellow-300 rounded-full w-96 h-96 animate-blob animation-delay-4000">
-    </div>
+  <main class="h-screen w-screen  bg-xai-100 dark:bg-xai-900   rounded-t-3xl fixed ">
+    <div class="h-full w-full -z-10 rounded-t-3xl px-12 pb-24 pt-6 overflow-y-auto scroll-smooth ">
+      <div
+        class="-z-10 p-40 absolute mix-blend-multiply border border-white/0 filter blur-2xl opacity-60 bottom-30 -left-10  bg-lightblue-300 rounded-full w-96 h-96 animate-blob">
+      </div>
+      <div
+        class="-z-10 p-40 absolute mix-blend-multiply border border-white/0 filter blur-2xl opacity-60 bottom-20 left-50   bg-pink-300 rounded-full w-96 h-96 animate-blob delay-1">
+      </div>
+      <div
+        class="-z-10 p-40 absolute mix-blend-multiply border border-white/0 filter blur-2xl opacity-40 bottom-45 left-20  bg-yellow-300 rounded-full w-96 h-96 animate-blob delay-3">
+      </div>
 
 
-    <div
-      class="-z-10 p-40 absolute mix-blend-multiply border-0 filter blur-2xl  opacity-40 bottom-60 right-56  bg-violet-300 rounded-full w-96 h-96 animate-blob animation-delay-4000 ">
+      <div
+        class="-z-10 p-40 absolute mix-blend-multiply border border-white/0 filter blur-2xl  opacity-40 bottom-60 right-56  bg-violet-300 rounded-full w-96 h-96 animate-blob delay-2">
+      </div>
+      <div
+        class="-z-10 p-40 absolute mix-blend-multiply border border-white/0 filter blur-2xl  opacity-60 bottom-52 right-52 bg-pink-300 rounded-full w-96 h-96 animate-blob">
+      </div>
+      <div
+        class="-z-10 p-40 absolute mix-blend-multiply border border-white/0 filter blur-2xl  opacity-40 bottom-50 right-60  bg-yellow-300 rounded-full w-96 h-96 animate-blob delay-4">
+      </div>
+
+
+      {{ block "main" . }}
+
+      {{ end }}
     </div>
-    <div
-      class="-z-10 p-40 absolute mix-blend-multiply border-0 filter blur-2xl  opacity-60 bottom-52 right-52 bg-pink-300 rounded-full w-96 h-96 animate-blob ">
-    </div>
-    <div
-      class="-z-10 p-40 absolute mix-blend-multiply border-0 filter blur-2xl  opacity-40 bottom-64 right-60  bg-yellow-300 rounded-full w-96 h-96 animate-blob animation-delay-2000">
-    </div>
-
-
-    {{ block "main" . }}
-
-    {{ end }}
-
   </main>
   <footer>
     {{ partial "footer.html" . }}
@@ -61,6 +76,17 @@
   <script src="{{ $script.RelPermalink }}" defer></script>
   {{- end }}
   {{- end }}
+
+  {{- with resources.Get "/js/account.js" }}
+  {{- if eq hugo.Environment "development" }}
+  <!-- Pada mode pengembangan, Anda mungkin ingin menyertakan file asli tanpa minify atau fingerprint -->
+  <script src="{{ .RelPermalink }}" defer></script>
+  {{- else }}
+  {{- $script := . | minify | fingerprint }}
+  <script src="{{ $script.RelPermalink }}" defer></script>
+  {{- end }}
+  {{- end }}
+
 </body>
 
 </html>

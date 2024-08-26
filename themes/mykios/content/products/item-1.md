@@ -6,6 +6,7 @@ price = '$19.99'
 images = ["/images/sepatu1.png"]
 draft = false
 summary_length = 10
+discount = '30%'
 +++
 
 This is the full content of Product Item 1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum modi quibusdam accusamus adipisci, autemplaceat? Officia odit quae nostrum excepturi iure, deserunt soluta in!

@@ -6,19 +6,35 @@
 {{- else if $page.HasMenuCurrent .Menu . }}
 {{- $attrs = merge $attrs (dict "class" "ancestor" "aria-current" "true") }}
 {{- end }}
+
 {{- $name := .Name }}
 {{- with .Identifier }}
 {{- with T . }}
 {{- $name = . }}
 {{- end }}
 {{- end }}
-<li class="w-full flex flex-col h-full  items-start justify-center  group text-center ">
-    <a class="group-hover:text-lightblue-300 h-[60px] pr-2 flex flex-col items-start justify-center pt-1 " {{- range $k,
-        $v :=$attrs }} {{- with $v }} {{- printf " %s=%q" $k $v | safeHTMLAttr }} {{- end }} {{- end }}>
 
-        {{- $name }}
+<li id="{{ .Identifier }}" class="w-full flex flex-col h-full items-start justify-center group text-center">
+    <a class="group-hover:text-lightblue-300 h-[60px] pr-2 flex flex-col items-start justify-center pt-1" {{- range $k,
+        $v :=$attrs }} {{- with $v }} {{- printf " %s=%q" $k $v | safeHTMLAttr }} {{- end }} {{- end }}>
+        {{- if eq .Identifier "toggle-mode" }}
+        <span class="material-symbols-rounded cursor-pointer text-lightblue-300 hover:text-lightblue-400"></span>
+        {{- else if eq .Identifier "login" }}
+        <span class="material-symbols-rounded cursor-pointer text-lightblue-300 hover:text-lightblue-400">login</span>
+        {{- else if eq .Identifier "signup" }}
+        <span
+            class="material-symbols-rounded cursor-pointer text-lightblue-300 hover:text-lightblue-400">person_add</span>
+        {{- else if eq .Identifier "logout" }}
+        <span class="material-symbols-rounded cursor-pointer text-lightblue-300 hover:text-lightblue-400">logout</span>
+        {{- else if eq .Identifier "account" }}
+        <div id="inner-account"
+            class="cursor-pointer justify-center items-center px-1 py-1 w-8 h-8 rounded-full border border-transparent text-base font-medium shadow-sm text-white bg-lightblue-400 hover:bg-lightblue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lightblue-500">
+        </div>
+        {{- else }}
+        {{ $name }}
+        {{- end }}
     </a>
-    <div class="w-[0%] group-hover:w-[100%]  h-[10%] items-start content-start relative  bg-lightblue-300 duration-500">
+    <div class="w-[0%] group-hover:w-[100%] h-[10%] items-start content-start relative bg-lightblue-300 duration-500">
     </div>
     {{- with .Children }}
     <ul>
